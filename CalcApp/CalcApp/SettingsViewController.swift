@@ -17,6 +17,11 @@ class SettingsViewController: UIViewController {
     }
     
 
+    //@IBAction func cancelBtn(_ sender: Any) {
+      //  self.dismiss(animated: true, completion: nil)
+    //}
+    
+    
     /*
     // MARK: - Navigation
 

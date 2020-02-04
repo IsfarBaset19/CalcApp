@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class ViewController: UIViewController {
+class LengthViewController: UIViewController {
 
     @IBOutlet weak var yardField: UITextField!
     
@@ -49,23 +49,27 @@ class ViewController: UIViewController {
         }
         }
 
-        
-        
-    
-    
     @IBAction func clearBtn(_ sender: UIButton) {
         yardField.text = ""
         meterField.text = ""
       
     }
-    
-    
-    @IBAction func modeBtn(_ sender: UIButton) {
+   
+    @IBAction func settingsFromLength(_ sender: Any) {
+        
+         self.performSegue(withIdentifier: "SegueToSettings", sender: self)
     }
-
+    
+    
+    @IBAction func cancel(segue: UIStoryboardSegue) {
+        
+        self.meterField.text = ""
+        self.yardField.text = ""
+    }
+    
 }
 
-extension ViewController : UITextFieldDelegate {
+extension LengthViewController : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
     
         if textField == self.yardField {
