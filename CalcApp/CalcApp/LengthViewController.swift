@@ -13,6 +13,8 @@ class LengthViewController: UIViewController {
     
     @IBOutlet weak var meterField: UITextField!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,7 +25,8 @@ class LengthViewController: UIViewController {
         // make this controller the delegate of the text fields.
                self.yardField.delegate = self
                self.meterField.delegate = self
-    }
+        
+            }
     
     @objc func dismissKeyboard(){
         self.view.endEditing(true)
@@ -65,6 +68,15 @@ class LengthViewController: UIViewController {
         
         self.meterField.text = ""
         self.yardField.text = ""
+    }
+    
+    
+    @IBAction func modeBtn(_ sender: Any) {
+        
+       
+        titleLabel.text = titleLabel.text == "Length Conversion Calculator" ? "Volume Conversion Calculator" : "Length Converstion Calculator"
+        
+    
     }
     
 }
