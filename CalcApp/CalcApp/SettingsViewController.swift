@@ -10,11 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    var lengthPickerData: [String] = [String]()
-      var volumePickerData: [String] = [String]()
-    var selection : String = "From Unit: "
-    
-    
+  
+    var pickerData: [String] = [String]()
 
     @IBOutlet weak var from: UITextField!
     @IBOutlet weak var to: UITextField!
@@ -22,19 +19,23 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.lengthPickerData = ["-", "Meters", "Yards", "Miles"]
-        self.volumePickerData = ["-", "Litres", "Quarts", "Gallons"]
+        
+         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+       
+        self.pickerData = ["-", "Meters", "Yards", "Miles", "Litres", "Quarts", "Gallons"]
+        
         
         self.picker.dataSource = self
         self.picker.delegate = self
-        
+   
         from.inputView = picker
         to.inputView = picker
+       
        
         
     }
     
+  
     //@IBAction func cancelBtn(_ sender: Any) {
       //  self.dismiss(animated: true, completion: nil)
     //}
@@ -55,22 +56,35 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        
+            return 1
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return lengthPickerData.count
+        
+            return pickerData.count
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.lengthPickerData[row]
+        
+      
+            return self.pickerData[row]
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        from.text = "From Units:  \(self.lengthPickerData[row])"
         
-        
-        
+        if from.isFirstResponder{
+        from.text = "From Units:  \(self.pickerData[row])"
+        }
+        else{
+            
+            to.text = "To Units:  \(self.pickerData[row])"
+            
+        }
+
     }
   
     
