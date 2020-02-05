@@ -74,8 +74,6 @@ class LengthViewController: UIViewController {
     @IBAction func modeBtn(_ sender: Any) {
         
        
-        titleLabel.text = titleLabel.text == "Length Conversion Calculator" ? "Volume Conversion Calculator" : "Length Converstion Calculator"
-        
     
     }
     
