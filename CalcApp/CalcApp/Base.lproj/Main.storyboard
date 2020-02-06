@@ -109,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-584.05797101449275" y="-573.21428571428567"/>
+            <point key="canvasLocation" x="-578" y="-1438"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Wb7-GU-QOX">
@@ -166,15 +166,15 @@
                             <outletCollection property="gestureRecognizers" destination="6z7-U0-bU9" appends="YES" id="Yzu-aW-Q6d"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="3Lm-m4-bxc">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="0aE-D4-Krw">
+                    <navigationItem key="navigationItem" id="ths-nr-1Pv">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="PP0-dj-6Jr">
                             <connections>
-                                <segue destination="0dz-Oi-ZEx" kind="unwind" unwindAction="cancelWithSegue:" id="a8p-ac-1Kk"/>
+                                <action selector="cancelPressed:" destination="HyR-GW-KgU" id="lpL-lC-eSx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="QxJ-ab-TYS">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="O9z-mX-Adh">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" animates="NO" modalPresentationStyle="overFullScreen" id="UXp-VA-ocd"/>
+                                <action selector="savePressed:" destination="HyR-GW-KgU" id="X08-RW-fMY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -187,10 +187,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xMP-1A-sln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="1Cp-bN-Wnc"/>
-                <exit id="0dz-Oi-ZEx" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="6z7-U0-bU9"/>
             </objects>
-            <point key="canvasLocation" x="944.92753623188412" y="-1438.3928571428571"/>
+            <point key="canvasLocation" x="875" y="-1431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lg9-Or-HYH">
@@ -204,12 +203,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="HyR-GW-KgU" kind="relationship" relationship="rootViewController" id="MFi-wx-C3g"/>
+                        <segue destination="HyR-GW-KgU" kind="relationship" relationship="rootViewController" id="VQI-Nh-IeG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wir-Ob-usg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="272" y="-573"/>
+            <point key="canvasLocation" x="183" y="-1438"/>
         </scene>
     </scenes>
 </document>

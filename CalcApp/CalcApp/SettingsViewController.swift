@@ -11,16 +11,20 @@
 import UIKit
 
 protocol SettingsViewControllerDelegate {
- func settingsChanged(fromUnits: LengthUnit , toUnits: LengthUnit )
- func settingsChanged(fromUnits: VolumeUnit , toUnits: VolumeUnit )
+ func settingsChanged(fromUnits: String, toUnits: String)
+
 }
 
 class SettingsViewController: UIViewController {
     
 
+    var pickerLengthData: [String] = [String]()
+    var pickerVolumeData: [String] = [String]()
     var pickerData: [String] = [String]()
     
     var selection : String = "-"
+    
+     var isLength: Bool?
 
     @IBOutlet weak var changed: UILabel!
     
@@ -47,15 +51,25 @@ class SettingsViewController: UIViewController {
         self.setupLabelTap()
         self.setupLabelTap1()
 
-        self.pickerData = ["-", "Meters", "Yards", "Miles", "Litres", "Quarts", "Gallons"]
+        self.pickerLengthData = ["-", "Meters", "Yards", "Miles"]
+        self.pickerVolumeData = ["-", "Litres", "Quarts", "Gallons"]
+        
+        
+        if let check = self.isLength {
+                  isLength = check
+        }
+              
+       if isLength == true {
+       self.pickerData = pickerLengthData
+       } else {
+        self.pickerData = pickerVolumeData
+    }
         
         
         self.picker.dataSource = self
         self.picker.delegate = self
 
-   
     }
-    
 
     @objc func dismissPicker(){
         picker.isHidden = true
@@ -92,7 +106,18 @@ class SettingsViewController: UIViewController {
         
     }
 
-
+    @IBAction func savePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
+        if let d = delegate {
+                   d.settingsChanged(fromUnits: from.text!, toUnits: to.text!)
+               }
+        }
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     //@IBAction func cancelBtn(_ sender: Any) {
       //  self.dismiss(animated: true, completion: nil)
     //}
@@ -129,8 +154,8 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        changed.text = "\(self.pickerData[row])"
+        self.selection = self.pickerData[row]
+        changed.text = self.selection
    
 }
 }

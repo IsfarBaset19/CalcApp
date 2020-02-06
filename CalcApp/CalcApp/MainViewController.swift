@@ -36,6 +36,16 @@ class MainViewController: UIViewController, SettingsViewControllerDelegate {
     
 
     @IBAction func calcBtn(_ sender: UIButton) {
+       //1. Meter - yard
+       // 2. yard - meter
+       //3. meter - miles
+        //4. miles-meter
+        //5. miles-yard
+        //6. yard-miles
+        //7. miles-miles
+        //8. yard-yard
+       // 9. meter-meter
+        
         
         if let meters = Double(fromVal.text!){
             if meters > 0 {
@@ -65,19 +75,7 @@ class MainViewController: UIViewController, SettingsViewControllerDelegate {
          self.performSegue(withIdentifier: "SegueToSettings", sender: self)
     }
     
-    
-    @IBAction func cancel(segue: UIStoryboardSegue) {
-        
-        self.fromVal.text = ""
-        self.toVal.text = ""
-    }
-    
-    @IBAction func save(segue: UIStoryboardSegue) {
-          
-        self.fromVal.text = ""
-        self.toVal.text = ""
-      }
-    
+
     
     @IBAction func modeBtn(_ sender: Any) {
         
@@ -106,25 +104,19 @@ class MainViewController: UIViewController, SettingsViewControllerDelegate {
     }
     
     
-    func settingsChanged(fromUnits: LengthUnit, toUnits: LengthUnit) {
-         // code
-    
-        //let convKey =  LengthConversionKey(toUnits: .Miles, fromUnits: .Meters)
-        //let toVal = fromVal * lengthConversionTable[convKey]!;
+    func settingsChanged(fromUnits: String, toUnits: String) {
+          fromUnit.text = fromUnits
+          toUnit.text = toUnits
+      }
       
-     }
-    func settingsChanged(fromUnits: VolumeUnit, toUnits: VolumeUnit) {
-       // code
-    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "saveLength" {
-            if let dest = segue.destination as? SettingsViewController{
-                dest.delegate = self
-            }
-    }
-    
-}
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if let dest = segue.destination.children[0] as? SettingsViewController{
+              dest.delegate = self
+           }
+   }
+
 }
 
 extension MainViewController : UITextFieldDelegate {
