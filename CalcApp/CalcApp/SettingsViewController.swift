@@ -8,19 +8,31 @@
 
 import UIKit
 
+  
+  protocol SettingsViewControllerDelegate {
+ 
+ // func settingsChanged(fromUnits: LengthUnit , toUnits: LengthUnit )
+  //func settingsChanged(fromUnits: VolumeUnit , toUnits: VolumeUnit )
+  }
+
 class SettingsViewController: UIViewController {
     
-  
+
     var pickerData: [String] = [String]()
 
     @IBOutlet weak var from: UITextField!
     @IBOutlet weak var to: UITextField!
     @IBOutlet weak var picker: UIPickerView!
     
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        //self.picker.isHidden = true
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
+        
        
         self.pickerData = ["-", "Meters", "Yards", "Miles", "Litres", "Quarts", "Gallons"]
         
@@ -77,10 +89,12 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if from.isFirstResponder{
+            
+    
         from.text = "From Units:  \(self.pickerData[row])"
         }
         else{
-            
+           
             to.text = "To Units:  \(self.pickerData[row])"
             
         }

@@ -70,6 +70,12 @@ class LengthViewController: UIViewController {
         self.yardField.text = ""
     }
     
+    @IBAction func save(segue: UIStoryboardSegue) {
+          
+          self.meterField.text = ""
+          self.yardField.text = ""
+      }
+    
     
     @IBAction func modeBtn(_ sender: Any) {
         

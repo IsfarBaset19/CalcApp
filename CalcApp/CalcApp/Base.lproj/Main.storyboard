@@ -225,7 +225,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDO-MO-4qI">
+                            <pickerView contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDO-MO-4qI">
                                 <rect key="frame" x="0.0" y="680" width="414" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
@@ -286,6 +286,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KQi-cZ-qHD"/>
+        <segue reference="dRS-NE-06d"/>
     </inferredMetricsTieBreakers>
 </document>
