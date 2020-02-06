@@ -10,7 +10,6 @@
 		4F3E30F923E9A8C500E55EEF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E30F823E9A8C500E55EEF /* SettingsViewController.swift */; };
 		4F6AC31523EBC40D00392B43 /* UnitsAndModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6AC31423EBC40C00392B43 /* UnitsAndModes.swift */; };
 		4F75501323E37C1E00316E7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F75501223E37C1E00316E7A /* AppDelegate.swift */; };
-		4F75501523E37C1E00316E7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F75501423E37C1E00316E7A /* SceneDelegate.swift */; };
 		4F75501723E37C1E00316E7A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F75501623E37C1E00316E7A /* MainViewController.swift */; };
 		4F75501A23E37C1E00316E7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F75501823E37C1E00316E7A /* Main.storyboard */; };
 		4F75501C23E37C2300316E7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F75501B23E37C2300316E7A /* Assets.xcassets */; };
@@ -42,7 +41,6 @@
 		4F6AC31423EBC40C00392B43 /* UnitsAndModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsAndModes.swift; sourceTree = "<group>"; };
 		4F75500F23E37C1E00316E7A /* CalcApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalcApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F75501223E37C1E00316E7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F75501423E37C1E00316E7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4F75501623E37C1E00316E7A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4F75501923E37C1E00316E7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F75501B23E37C2300316E7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				4F75501223E37C1E00316E7A /* AppDelegate.swift */,
-				4F75501423E37C1E00316E7A /* SceneDelegate.swift */,
 				4F75501623E37C1E00316E7A /* MainViewController.swift */,
 				4F75501823E37C1E00316E7A /* Main.storyboard */,
 				4F6AC31423EBC40C00392B43 /* UnitsAndModes.swift */,
@@ -273,7 +270,6 @@
 				4F75504323E38CB800316E7A /* DecimalMinusTextField.swift in Sources */,
 				4F3E30F923E9A8C500E55EEF /* SettingsViewController.swift in Sources */,
 				4F6AC31523EBC40D00392B43 /* UnitsAndModes.swift in Sources */,
-				4F75501523E37C1E00316E7A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -432,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -483,7 +479,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CalcAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,7 +500,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CalcAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
