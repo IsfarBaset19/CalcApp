@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Length View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LengthViewController" customModule="CalcApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="CalcApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,14 +42,14 @@
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mY4-CG-mtL">
-                                <rect key="frame" x="286" y="159" width="43" height="21"/>
+                                <rect key="frame" x="286" y="159" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEK-os-wRp">
-                                <rect key="frame" x="286" y="250" width="66" height="16"/>
+                                <rect key="frame" x="286" y="250" width="108" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -100,11 +100,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="XTx-YZ-lHt"/>
                     <connections>
-                        <outlet property="fromUnit" destination="SEK-os-wRp" id="r45-bs-aCC"/>
-                        <outlet property="meterField" destination="5hn-ZZ-3XG" id="lKH-pU-p1f"/>
+                        <outlet property="fromUnit" destination="mY4-CG-mtL" id="eVk-q8-IPN"/>
+                        <outlet property="fromVal" destination="scX-54-wGf" id="9fy-j6-9F5"/>
                         <outlet property="titleLabel" destination="SHL-5o-yVJ" id="ccF-Im-OBJ"/>
-                        <outlet property="toUnit" destination="mY4-CG-mtL" id="PeO-WY-VcG"/>
-                        <outlet property="yardField" destination="scX-54-wGf" id="mv4-Vk-5vT"/>
+                        <outlet property="toUnit" destination="SEK-os-wRp" id="ikZ-eK-NRh"/>
+                        <outlet property="toVal" destination="5hn-ZZ-3XG" id="wRW-Ya-vQO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -120,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4l-as-pAT">
-                                <rect key="frame" x="173" y="88" width="69" height="21"/>
+                                <rect key="frame" x="172" y="88" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -130,22 +130,41 @@
                                 <rect key="frame" x="0.0" y="680" width="414" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="From Units:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFv-fO-lT6">
-                                <rect key="frame" x="20" y="138" width="374" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From Units: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZe-d1-HKJ">
+                                <rect key="frame" x="108" y="300" width="93" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="To Units: " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m0e-fp-8Vl">
-                                <rect key="frame" x="20" y="180" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To Units: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAe-Ef-wWf">
+                                <rect key="frame" x="129" y="329" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnf-I7-cdc">
+                                <rect key="frame" x="209" y="300" width="155" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeZ-Vq-R3J">
+                                <rect key="frame" x="209" y="329" width="155" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="jGl-Bf-Xjp"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6z7-U0-bU9" appends="YES" id="Yzu-aW-Q6d"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="3Lm-m4-bxc">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="0aE-D4-Krw">
@@ -153,18 +172,25 @@
                                 <segue destination="0dz-Oi-ZEx" kind="unwind" unwindAction="cancelWithSegue:" id="a8p-ac-1Kk"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="QxJ-ab-TYS"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="QxJ-ab-TYS">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" animates="NO" modalPresentationStyle="overFullScreen" id="UXp-VA-ocd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="from" destination="nFv-fO-lT6" id="Uzh-Bh-OrL"/>
-                        <outlet property="picker" destination="HDO-MO-4qI" id="uw8-WD-K4H"/>
-                        <outlet property="to" destination="m0e-fp-8Vl" id="FnN-f7-qT1"/>
+                        <outlet property="changed" destination="Qnf-I7-cdc" id="NdU-pf-56i"/>
+                        <outlet property="from" destination="Qnf-I7-cdc" id="0tH-ZY-dWC"/>
+                        <outlet property="picker" destination="HDO-MO-4qI" id="bfU-EW-m2a"/>
+                        <outlet property="to" destination="NeZ-Vq-R3J" id="GUv-qU-kre"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xMP-1A-sln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1Cp-bN-Wnc"/>
                 <exit id="0dz-Oi-ZEx" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="6z7-U0-bU9"/>
             </objects>
-            <point key="canvasLocation" x="1079.7101449275362" y="-573.21428571428567"/>
+            <point key="canvasLocation" x="944.92753623188412" y="-1438.3928571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lg9-Or-HYH">

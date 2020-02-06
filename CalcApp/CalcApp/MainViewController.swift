@@ -7,18 +7,11 @@
 //
 import UIKit
 
-class LengthViewController: UIViewController, SettingsViewControllerDelegate {
+class MainViewController: UIViewController, SettingsViewControllerDelegate {
     
     
-    func indicateUnit(fromUnit: String) {
-       self.fromUnit.text = " \(fromUnit)"
-    }
-    
-
-    @IBOutlet weak var yardField: UITextField!
-    
-    @IBOutlet weak var meterField: UITextField!
-    
+    @IBOutlet weak var fromVal: DecimalMinusTextField!
+    @IBOutlet weak var toVal: DecimalMinusTextField!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var toUnit: UILabel!
     @IBOutlet weak var fromUnit: UILabel!
@@ -28,13 +21,12 @@ class LengthViewController: UIViewController, SettingsViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         let detectTouch = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(detectTouch)
         
         // make this controller the delegate of the text fields.
-               self.yardField.delegate = self
-               self.meterField.delegate = self
+               self.fromVal.delegate = self
+               self.toVal.delegate = self
         
             }
     
@@ -45,29 +37,29 @@ class LengthViewController: UIViewController, SettingsViewControllerDelegate {
 
     @IBAction func calcBtn(_ sender: UIButton) {
         
-        if let meters = Double(meterField.text!){
+        if let meters = Double(fromVal.text!){
             if meters > 0 {
                 // two decimal places conversion
-                yardField.text = String(meters * 1.09361)
-            
+                toVal.text = String(meters * 1.09361)
             }
         }
         
-            if let yards = Double(yardField.text!){
+            if let yards = Double(toVal.text!){
             if yards > 0 {
                  // two decimal places cpnversion
-                meterField.text = String(yards / 1.09361)
+                fromVal.text = String(yards / 1.09361)
                        
                        }
         }
+  
         }
 
     @IBAction func clearBtn(_ sender: UIButton) {
-        yardField.text = ""
-        meterField.text = ""
+        fromVal.text = ""
+        toVal.text = ""
       
     }
-   
+    
     @IBAction func settingsFromLength(_ sender: Any) {
         
          self.performSegue(withIdentifier: "SegueToSettings", sender: self)
@@ -76,17 +68,15 @@ class LengthViewController: UIViewController, SettingsViewControllerDelegate {
     
     @IBAction func cancel(segue: UIStoryboardSegue) {
         
-        self.meterField.text = ""
-        self.yardField.text = ""
+        self.fromVal.text = ""
+        self.toVal.text = ""
     }
     
     @IBAction func save(segue: UIStoryboardSegue) {
           
-          self.meterField.text = ""
-          self.yardField.text = ""
+        self.fromVal.text = ""
+        self.toVal.text = ""
       }
-    
-  
     
     
     @IBAction func modeBtn(_ sender: Any) {
@@ -95,18 +85,36 @@ class LengthViewController: UIViewController, SettingsViewControllerDelegate {
             fromUnit.text = "Gallons"
             toUnit.text = "Liters"
             titleLabel.text = "Volume Conversion Calculator"
+            fromVal.placeholder = "Enter Volume"
+            toVal.placeholder = "Enter Volume"
            
-            lengthUnit = false;
+            lengthUnit = false
         } else {
             
             toUnit.text = "Yards"
             fromUnit.text = "Meters"
             titleLabel.text = "Length Conversion Calculator"
             
-            lengthUnit = true;
+            lengthUnit = true
+            
+            fromVal.placeholder = "Enter Length"
+            toVal.placeholder = "Enter Length"
+            
         }
         
         
+    }
+    
+    
+    func settingsChanged(fromUnits: LengthUnit, toUnits: LengthUnit) {
+         // code
+    
+        //let convKey =  LengthConversionKey(toUnits: .Miles, fromUnits: .Meters)
+        //let toVal = fromVal * lengthConversionTable[convKey]!;
+      
+     }
+    func settingsChanged(fromUnits: VolumeUnit, toUnits: VolumeUnit) {
+       // code
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -119,16 +127,16 @@ class LengthViewController: UIViewController, SettingsViewControllerDelegate {
 }
 }
 
-extension LengthViewController : UITextFieldDelegate {
+extension MainViewController : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
     
-        if textField == self.yardField {
-            self.meterField.text = ""
+        if textField == self.fromVal {
+            self.toVal.text = ""
             
         }
         
-        else if textField == self.meterField {
-            self.yardField.text = ""
+        else if textField == self.toVal {
+            self.fromVal.text = ""
         }
     }
     

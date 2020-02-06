@@ -5,11 +5,14 @@
 //  Created by Isfar Baset on 2/4/20.
 //  Copyright © 2020 Isfar Baset. All rights reserved.
 //
+// Tap gesture regonizing for UIPicker help was taken from https://medium.com/app-makers/how-to-add-a-tap-gesture-to-uilabel-in-xcode-swift-7ada58f1664
+
 
 import UIKit
 
 protocol SettingsViewControllerDelegate {
-    func indicateUnit(fromUnit:String)
+ func settingsChanged(fromUnits: LengthUnit , toUnits: LengthUnit )
+ func settingsChanged(fromUnits: VolumeUnit , toUnits: VolumeUnit )
 }
 
 class SettingsViewController: UIViewController {
@@ -17,11 +20,15 @@ class SettingsViewController: UIViewController {
 
     var pickerData: [String] = [String]()
     
-    var selection : String = "lala"
+    var selection : String = "-"
 
-    @IBOutlet weak var from: UITextField!
-    @IBOutlet weak var to: UITextField!
+    @IBOutlet weak var changed: UILabel!
+    
+    @IBOutlet weak var from: UILabel!
+    @IBOutlet weak var to: UILabel!
+    
     @IBOutlet weak var picker: UIPickerView!
+    
     
     var delegate : SettingsViewControllerDelegate?
     
@@ -30,32 +37,62 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.picker.isHidden = true
+        picker.isHidden = true
+        
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
+        let detectTouch = UITapGestureRecognizer(target: self, action: #selector(self.dismissPicker))
+        self.view.addGestureRecognizer(detectTouch)
         
-       
+        self.setupLabelTap()
+        self.setupLabelTap1()
+
         self.pickerData = ["-", "Meters", "Yards", "Miles", "Litres", "Quarts", "Gallons"]
         
         
         self.picker.dataSource = self
         self.picker.delegate = self
+
    
-        from.inputView = picker
-        to.inputView = picker
-       
-       
+    }
+    
+
+    @objc func dismissPicker(){
+        picker.isHidden = true
+    }
+    
+    @objc func labelTapped(_ sender: UITapGestureRecognizer) {
+        picker.isHidden = false
+        changed = from
+        print("labelTapped")
+        
+        
+    }
+
+    @objc func labelTapped1(_ sender: UITapGestureRecognizer) {
+        picker.isHidden = false
+        changed = to
+        print("labelTapped1")
+
+    }
+    
+    func setupLabelTap() {
+        
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+        self.from.isUserInteractionEnabled = true
+        self.from.addGestureRecognizer(labelTap)
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if let d = self.delegate {
-            d.indicateUnit(fromUnit: selection)
-        }
+    func setupLabelTap1() {
+        
+        let labelTap1 = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped1(_:)))
+        self.to.isUserInteractionEnabled = true
+        self.to.addGestureRecognizer(labelTap1)
+        
     }
-    
-  
+
+
     //@IBAction func cancelBtn(_ sender: Any) {
       //  self.dismiss(animated: true, completion: nil)
     //}
@@ -72,7 +109,6 @@ class SettingsViewController: UIViewController {
     */
 
 }
-
 extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -80,13 +116,11 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate{
             return 1
         
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
             return pickerData.count
         
     }
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
       
@@ -96,18 +130,7 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        if from.isFirstResponder{
-            
-    
-        from.text = "From Units:  \(self.pickerData[row])"
-        }
-        else{
-           
-            to.text = "To Units:  \(self.pickerData[row])"
-            
-        }
-
-    }
-  
-    
+        changed.text = "\(self.pickerData[row])"
+   
+}
 }
