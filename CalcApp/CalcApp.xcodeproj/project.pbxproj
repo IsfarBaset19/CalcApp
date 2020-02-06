@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4F3E30F923E9A8C500E55EEF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E30F823E9A8C500E55EEF /* SettingsViewController.swift */; };
-		4F3E30FB23E9A8EC00E55EEF /* VolumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E30FA23E9A8EC00E55EEF /* VolumeViewController.swift */; };
 		4F75501323E37C1E00316E7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F75501223E37C1E00316E7A /* AppDelegate.swift */; };
 		4F75501523E37C1E00316E7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F75501423E37C1E00316E7A /* SceneDelegate.swift */; };
-		4F75501723E37C1E00316E7A /* LengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F75501623E37C1E00316E7A /* LengthViewController.swift */; };
+		4F75501723E37C1E00316E7A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F75501623E37C1E00316E7A /* MainViewController.swift */; };
 		4F75501A23E37C1E00316E7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F75501823E37C1E00316E7A /* Main.storyboard */; };
 		4F75501C23E37C2300316E7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F75501B23E37C2300316E7A /* Assets.xcassets */; };
 		4F75501F23E37C2300316E7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F75501D23E37C2300316E7A /* LaunchScreen.storyboard */; };
@@ -39,11 +38,10 @@
 
 /* Begin PBXFileReference section */
 		4F3E30F823E9A8C500E55EEF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		4F3E30FA23E9A8EC00E55EEF /* VolumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeViewController.swift; sourceTree = "<group>"; };
 		4F75500F23E37C1E00316E7A /* CalcApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalcApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F75501223E37C1E00316E7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F75501423E37C1E00316E7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4F75501623E37C1E00316E7A /* LengthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthViewController.swift; sourceTree = "<group>"; };
+		4F75501623E37C1E00316E7A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4F75501923E37C1E00316E7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F75501B23E37C2300316E7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F75501E23E37C2300316E7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -107,10 +105,9 @@
 			children = (
 				4F75501223E37C1E00316E7A /* AppDelegate.swift */,
 				4F75501423E37C1E00316E7A /* SceneDelegate.swift */,
-				4F75501623E37C1E00316E7A /* LengthViewController.swift */,
+				4F75501623E37C1E00316E7A /* MainViewController.swift */,
 				4F75501823E37C1E00316E7A /* Main.storyboard */,
 				4F3E30F823E9A8C500E55EEF /* SettingsViewController.swift */,
-				4F3E30FA23E9A8EC00E55EEF /* VolumeViewController.swift */,
 				4F75504223E38CB800316E7A /* DecimalMinusTextField.swift */,
 				4F75501B23E37C2300316E7A /* Assets.xcassets */,
 				4F75501D23E37C2300316E7A /* LaunchScreen.storyboard */,
@@ -268,9 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F75501723E37C1E00316E7A /* LengthViewController.swift in Sources */,
+				4F75501723E37C1E00316E7A /* MainViewController.swift in Sources */,
 				4F75501323E37C1E00316E7A /* AppDelegate.swift in Sources */,
-				4F3E30FB23E9A8EC00E55EEF /* VolumeViewController.swift in Sources */,
 				4F75504323E38CB800316E7A /* DecimalMinusTextField.swift in Sources */,
 				4F3E30F923E9A8C500E55EEF /* SettingsViewController.swift in Sources */,
 				4F75501523E37C1E00316E7A /* SceneDelegate.swift in Sources */,

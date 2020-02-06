@@ -8,21 +8,22 @@
 
 import UIKit
 
-  
-  protocol SettingsViewControllerDelegate {
- 
- // func settingsChanged(fromUnits: LengthUnit , toUnits: LengthUnit )
-  //func settingsChanged(fromUnits: VolumeUnit , toUnits: VolumeUnit )
-  }
+protocol SettingsViewControllerDelegate {
+    func indicateUnit(fromUnit:String)
+}
 
 class SettingsViewController: UIViewController {
     
 
     var pickerData: [String] = [String]()
+    
+    var selection : String = "lala"
 
     @IBOutlet weak var from: UITextField!
     @IBOutlet weak var to: UITextField!
     @IBOutlet weak var picker: UIPickerView!
+    
+    var delegate : SettingsViewControllerDelegate?
     
     
 
@@ -45,6 +46,13 @@ class SettingsViewController: UIViewController {
        
        
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let d = self.delegate {
+            d.indicateUnit(fromUnit: selection)
+        }
     }
     
   

@@ -7,13 +7,23 @@
 //
 import UIKit
 
-class LengthViewController: UIViewController {
+class LengthViewController: UIViewController, SettingsViewControllerDelegate {
+    
+    
+    func indicateUnit(fromUnit: String) {
+       self.fromUnit.text = " \(fromUnit)"
+    }
+    
 
     @IBOutlet weak var yardField: UITextField!
     
     @IBOutlet weak var meterField: UITextField!
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var toUnit: UILabel!
+    @IBOutlet weak var fromUnit: UILabel!
+    
+    var lengthUnit:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,13 +86,37 @@ class LengthViewController: UIViewController {
           self.yardField.text = ""
       }
     
+  
+    
     
     @IBAction func modeBtn(_ sender: Any) {
         
-       
-    
+        if lengthUnit == true {
+            fromUnit.text = "Gallons"
+            toUnit.text = "Liters"
+            titleLabel.text = "Volume Conversion Calculator"
+           
+            lengthUnit = false;
+        } else {
+            
+            toUnit.text = "Yards"
+            fromUnit.text = "Meters"
+            titleLabel.text = "Length Conversion Calculator"
+            
+            lengthUnit = true;
+        }
+        
+        
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "saveLength" {
+            if let dest = segue.destination as? SettingsViewController{
+                dest.delegate = self
+            }
+    }
+    
+}
 }
 
 extension LengthViewController : UITextFieldDelegate {
@@ -100,4 +134,5 @@ extension LengthViewController : UITextFieldDelegate {
     
 
 }
+
 
