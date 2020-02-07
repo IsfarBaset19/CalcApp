@@ -12,7 +12,6 @@ import UIKit
 
 protocol SettingsViewControllerDelegate {
  func settingsChanged(fromUnits: String, toUnits: String)
-
 }
 
 class SettingsViewController: UIViewController {
@@ -24,7 +23,7 @@ class SettingsViewController: UIViewController {
     
     var selection : String = "-"
     
-     var isLength: Bool?
+    var isLength: Bool?
 
     @IBOutlet weak var changed: UILabel!
     
@@ -54,11 +53,6 @@ class SettingsViewController: UIViewController {
         self.pickerLengthData = ["-", "Meters", "Yards", "Miles"]
         self.pickerVolumeData = ["-", "Litres", "Quarts", "Gallons"]
         
-        
-        if let check = self.isLength {
-                  isLength = check
-        }
-              
        if isLength == true {
        self.pickerData = pickerLengthData
        } else {

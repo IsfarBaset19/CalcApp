@@ -182,16 +182,13 @@ class MainViewController: UIViewController, SettingsViewControllerDelegate {
                     }
                 }
             }
-            
-            
-            
-            
+   
         }
         
         else{
             
             // Liters to Gallons
-            if label1.text == "Liters"{
+            if label1.text == "Litres"{
                 if label2.text == "Gallons"{
                     
                     if let liters = Double(field1.text!){
@@ -208,7 +205,7 @@ class MainViewController: UIViewController, SettingsViewControllerDelegate {
             // Gallons to Liters
             
             if label1.text == "Gallons"{
-                        if label2.text == "Liters"{
+                        if label2.text == "Litres"{
                             
                             if let gallons = Double(field1.text!){
                             field2.text = String(gallons * 3.78541)
@@ -222,7 +219,7 @@ class MainViewController: UIViewController, SettingsViewControllerDelegate {
                     }
             
             // Liters to Quarts
-            if label1.text == "Liters"{
+            if label1.text == "Litres"{
                 if label2.text == "Quarts"{
                     
                     if let liters = Double(field1.text!){
@@ -239,7 +236,7 @@ class MainViewController: UIViewController, SettingsViewControllerDelegate {
             
             // Quarts to Liters
             if label1.text == "Quarts"{
-                        if label2.text == "Liters"{
+                        if label2.text == "Litres"{
                             
                             if let quarts = Double(field1.text!){
                             field2.text = String(quarts * 0.946353)
@@ -254,33 +251,33 @@ class MainViewController: UIViewController, SettingsViewControllerDelegate {
             
             // Gallons to Quarts
             if label1.text == "Gallons"{
-                                 if label2.text == "Quarts"{
+            if label2.text == "Quarts"{
                                      
-                                     if let gallons = Double(field1.text!){
-                                     field2.text = String(gallons * 4)
-                                     }
-                                     else{
-                                         if let quarts = Double(field2.text!){
-                                             field1.text = String(quarts / 4)
-                                         }
-                                     }
-                                 }
-                             }
+            if let gallons = Double(field1.text!){
+            field2.text = String(gallons * 4)
+            }
+            else{
+            if let quarts = Double(field2.text!){
+            field1.text = String(quarts / 4)
+            }
+        }
+    }
+}
             
             // Quarts to Gallons
             if label1.text == "Quarts"{
-                                 if label2.text == "Gallons"{
+                if label2.text == "Gallons"{
                                      
-                                     if let quarts = Double(field1.text!){
-                                     field2.text = String(quarts * 0.25)
-                                     }
-                                     else{
-                                         if let gallons = Double(field2.text!){
-                                             field1.text = String(gallons / 0.25)
-                                         }
-                                     }
-                                 }
-                             }
+                    if let quarts = Double(field1.text!){
+                    field2.text = String(quarts * 0.25)
+                    }
+                    else{
+                    if let gallons = Double(field2.text!){
+                    field1.text = String(gallons / 0.25)
+                }
+            }
+        }
+    }
             
             // Gallons to gallons
             if label1.text == "Gallons"{
@@ -298,34 +295,34 @@ class MainViewController: UIViewController, SettingsViewControllerDelegate {
            }
             
             // Liters to Liters
-            if label1.text == "Liters"{
-                                            if label2.text == "Liters"{
+            if label1.text == "Litres"{
+            if label2.text == "Litres"{
                                                 
-                                                if let liters = Double(field1.text!){
-                                                field2.text = String(liters)
-                                                }
-                                                else{
-                                                    if let liters = Double(field2.text!){
-                                                        field1.text = String(liters)
-                                                    }
-                                                }
-                                            }
-                                        }
+            if let liters = Double(field1.text!){
+            field2.text = String(liters)
+            }
+            else{
+            if let liters = Double(field2.text!){
+            field1.text = String(liters)
+            }
+        }
+        }
+    }
             
             // Quarts to quarts
             if label1.text == "Quarts"{
-                                            if label2.text == "Quarts"{
+              if label2.text == "Quarts"{
                                                 
-                                                if let quarts = Double(field1.text!){
-                                                field2.text = String(quarts)
-                                                }
-                                                else{
-                                                    if let quarts = Double(field2.text!){
-                                                        field1.text = String(quarts)
-                                                    }
-                                                }
-                                            }
-                                        }
+                if let quarts = Double(field1.text!){
+                field2.text = String(quarts)
+                }
+                else{
+                if let quarts = Double(field2.text!){
+                field1.text = String(quarts)
+                }
+            }
+        }
+        }
        
         }
     }
@@ -345,7 +342,7 @@ class MainViewController: UIViewController, SettingsViewControllerDelegate {
         
         if lengthUnit == true {
             fromUnit.text = "Gallons"
-            toUnit.text = "Liters"
+            toUnit.text = "Litres"
             titleLabel.text = "Volume Conversion Calculator"
             fromVal.placeholder = "Enter Volume"
             toVal.placeholder = "Enter Volume"
